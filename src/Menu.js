@@ -14,22 +14,35 @@ export default function Home() {
 
     return (
         <div>
-            <div className="exam-title">{Exams.map(exam => (
-                <div onClick={() => setExam(exam)}> {exam.title} </div>
-            ))}</div>
-            {exam != null &&
-                exam.sections.map(section => (
-                    <div onClick={() => update(section)}>  {section.name}</div>
-                ))
-            }
-        </div>
+            <div className="menu" id="exams-menu">
+                {Exams.map(exam => (
+                    <button onClick={() => setExam(exam)} className="option"> {exam.title} </button>
+                ))}
+            </div>
+            <div className="menu">
+                {
+                    exam != null &&
+                    exam.sections.map(section => (
+                        <button onClick={() => update(section)} className="option">  {section.name}</button>
+                    ))
+                }
+                {/* </div> */}
+            </div></div>
     )
 
 }
 
 export const Exams = [
     {
-        "title": "CSA",
+        "title": "Computer Science Principles",
+        "sections": [
+            {
+                "name": "MCQ",
+                "duration": 70
+            }
+        ]
+    }, {
+        "title": "Computer Science A",
         "sections": [
             {
                 "name": "MCQ",
@@ -62,14 +75,6 @@ export const Exams = [
             {
                 "name": "FRQ",
                 "duration": 45
-            }
-        ]
-    }, {
-        "title": "CSP",
-        "sections": [
-            {
-                "name": "MCQ",
-                "duration": 70
             }
         ]
     }

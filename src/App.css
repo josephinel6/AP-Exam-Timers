@@ -1,38 +1,50 @@
-.App {
-  text-align: center;
+#App {
+  background-color: rgb(255, 234, 247);
+  background-image: linear-gradient(rgb(255, 220, 242), pink);
+  height: 100vh;
+  width: 100vw;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.option {
+  border: none;
+  /* border-width: 1px; */
+  /* border-color: black; */
+  /* border-style: solid; */
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 0.5em;
+  background-color: rgb(255, 251, 251);
+  padding-bottom: 0.5em;
+  border-radius: 0.5em;
+  font-size: 1.1em;
+  margin: 0.25em;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.menu {
+  width: 100vw;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+#exams-menu {
+  padding-top: 15vh;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#timer-container {
+  /* width: 100vw;
+  display: flex;
+  justify-content: center; */
+}
+
+#timer {
+  /* margin-top: 15vh; */
+  position: absolute;
+  top: 40vh;
+  /* margin-top: 20vh; */
+  font-size: 6em;
+  width: 100vw;
+  color: rgb(146, 51, 110);
+  text-align: center;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  /* font-family: 'Times New Roman', Times, serif; */
 }

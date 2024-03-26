@@ -45,13 +45,22 @@ export default function Timer() {
         return () => clearInterval(interval);
     }, [timerContext])
 
-    const hours = Math.floor(totalSeconds / 3600);
-    const minutes = Math.floor(totalSeconds % 3600 / 60);
-    const seconds = totalSeconds % 60;
+    let hours = Math.floor(totalSeconds / 3600);
+    let minutes = Math.floor(totalSeconds % 3600 / 60);
+    let seconds = totalSeconds % 60;
+
+    if (hours < 10)
+        hours = "0" + hours;
+
+    if (minutes < 10)
+        minutes = "0" + minutes;
+
+    if (seconds < 10)
+        seconds = "0" + seconds;
 
     return (
-        <div>
-            <div> {hours + ':' + minutes + ':' + seconds}</div>
+        <div id="timer-container">
+            <div id="timer"> {hours + ':' + minutes + ':' + seconds}</div>
             <button onClick={() => togglePause()}> {isPaused ? "Go" : "Stop"} </button>
             <button> Reset </button>
         </div>
