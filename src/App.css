@@ -20,6 +20,10 @@
   margin: 0.25em;
 }
 
+#sections-menu {
+  margin-top: 1vh;
+}
+
 .menu {
   width: 100vw;
   display: flex;
@@ -27,7 +31,7 @@
 }
 
 #exams-menu {
-  padding-top: 15vh;
+  padding-top: 17.5vh;
 }
 
 #timer-container {
@@ -39,12 +43,31 @@
 #timer {
   /* margin-top: 15vh; */
   position: absolute;
-  top: 40vh;
+  top: 36vh;
   /* margin-top: 20vh; */
-  font-size: 6em;
+  font-size: 8em;
   width: 100vw;
   color: rgb(146, 51, 110);
   text-align: center;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   /* font-family: 'Times New Roman', Times, serif; */
+}
+
+.icon {
+  color: white;
+  font-size: 2.75em;
+  margin: 0.4em;
+}
+
+.icon:hover {
+  cursor: pointer;
+}
+
+#toggles {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 57vh;
+  position: absolute;
 }

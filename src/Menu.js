@@ -19,7 +19,7 @@ export default function Home() {
                     <button onClick={() => setExam(exam)} className="option"> {exam.title} </button>
                 ))}
             </div>
-            <div className="menu">
+            <div className="menu" id="sections-menu">
                 {
                     exam != null &&
                     exam.sections.map(section => (
@@ -75,6 +75,30 @@ export const Exams = [
             {
                 "name": "FRQ",
                 "duration": 45
+            }
+        ]
+    }, {
+        "title": "English Language and Composition",
+        "sections": [
+            {
+                "name": "MCQ",
+                "duration": 60
+            },
+            {
+                "name": "FRQ",
+                "duration": 120
+            }
+        ]
+    }, {
+        "title": "Biology",
+        "sections": [
+            {
+                "name": "MCQ",
+                "duration": 90
+            },
+            {
+                "name": "FRQ",
+                "duration": 90
             }
         ]
     }

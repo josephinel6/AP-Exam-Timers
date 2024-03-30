@@ -1,5 +1,7 @@
 import { useState, useEffect, useContext, useRef } from 'react';
 import TimerContext from './TimerContext';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlay, faPause, faRefresh } from '@fortawesome/free-solid-svg-icons'
 
 export default function Timer() {
     const timerContext = useContext(TimerContext);
@@ -26,6 +28,13 @@ export default function Timer() {
         }
     }
 
+    function reset() {
+        totalSecondsRef.current = timerContext.minutes * 60;
+        setTotalSeconds(totalSecondsRef.current);
+        isPausedRef.current = true;
+        setIsPaused(isPausedRef.current);
+    }
+
     useEffect(() => {
 
         totalSecondsRef.current = timerContext.minutes * 60;
@@ -40,6 +49,14 @@ export default function Timer() {
             }
 
             tick();
+
+
+            if (seconds == 0) {
+                console.log(totalSecondsRef.current)
+                isPausedRef.current = true;
+                setIsPaused(true);
+                alert("Time up!");
+            }
         }, 1000);
 
         return () => clearInterval(interval);
@@ -61,8 +78,10 @@ export default function Timer() {
     return (
         <div id="timer-container">
             <div id="timer"> {hours + ':' + minutes + ':' + seconds}</div>
-            <button onClick={() => togglePause()}> {isPaused ? "Go" : "Stop"} </button>
-            <button> Reset </button>
+            <div id="toggles">
+                <FontAwesomeIcon onClick={() => togglePause()} className="icon" icon={isPaused ? faPlay : faPause} />
+                <FontAwesomeIcon onClick={() => reset()} className="icon" icon={faRefresh} />
+            </div>
         </div>
     );
 }
