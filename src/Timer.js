@@ -57,6 +57,7 @@ export default function Timer() {
                 isPausedRef.current = true;
                 setIsPaused(true);
                 document.getElementById("audio").pause();
+                reset();
                 return;
             }
         }, 1000);
@@ -76,10 +77,6 @@ export default function Timer() {
 
     if (seconds < 10)
         seconds = "0" + seconds;
-
-    if (totalSeconds < 0) {
-        reset();
-    }
 
     return (
         <div id="timer-container">
