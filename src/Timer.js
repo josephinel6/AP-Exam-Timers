@@ -2,6 +2,8 @@ import { useState, useEffect, useContext, useRef } from 'react';
 import TimerContext from './TimerContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlay, faPause, faRefresh } from '@fortawesome/free-solid-svg-icons'
+import Ringtone from './clock-alarm-8761.mp3'
+import Sound from 'react-sound'
 
 export default function Timer() {
     const timerContext = useContext(TimerContext);
@@ -36,7 +38,6 @@ export default function Timer() {
     }
 
     useEffect(() => {
-
         totalSecondsRef.current = timerContext.minutes * 60;
         setTotalSeconds(totalSecondsRef.current);
 
@@ -44,18 +45,19 @@ export default function Timer() {
             if (isPausedRef.current) {
                 return;
             }
-            if (totalSecondsRef.current == 0) {
-                return;
-            }
 
             tick();
 
+            if (totalSecondsRef.current == 0) {
+                document.getElementById("audio").play();
+            }
 
-            if (seconds == 0) {
-                console.log(totalSecondsRef.current)
+            if (totalSecondsRef.current == -1) {
+                alert("Time up!");
                 isPausedRef.current = true;
                 setIsPaused(true);
-                alert("Time up!");
+                document.getElementById("audio").pause();
+                return;
             }
         }, 1000);
 
@@ -75,8 +77,14 @@ export default function Timer() {
     if (seconds < 10)
         seconds = "0" + seconds;
 
+    if (totalSeconds < 0) {
+        reset();
+    }
+
     return (
         <div id="timer-container">
+            <audio src={Ringtone} id="audio" />
+            {/* <Sound url={Ringtone} playStatus={Sound.status.PLAYING} /> */}
             <div id="timer"> {hours + ':' + minutes + ':' + seconds}</div>
             <div id="toggles">
                 <FontAwesomeIcon onClick={() => togglePause()} className="icon" icon={isPaused ? faPlay : faPause} />

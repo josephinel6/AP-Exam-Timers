@@ -98,7 +98,7 @@ export const Exams = [
             },
             {
                 "name": "FRQ",
-                "duration": 90
+                "duration": 0.1
             }
         ]
     }
