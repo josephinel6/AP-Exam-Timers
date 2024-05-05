@@ -6,6 +6,8 @@ Simple timer for AP exams.
 - [X] Add alarm sound
     - [ ] Add alarm sound change
 - [ ] Increase screen size compatibility
+- [ ] (Bug) Fix switching between exams
+- [ ] (Bug) Allow for running in background
 
 ### Features
 - A limited # of exams
